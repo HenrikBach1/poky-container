@@ -5,6 +5,6 @@
 *~
 
 # HB:
-.devcontainer
-!.devcontainer\Dockerfile
-!.devcontainer\devcontainer.json
+.devcontainer/*
+!.devcontainer/Dockerfile
+!.devcontainer/devcontainer.json
