@@ -51,7 +51,7 @@ RUN userdel -r yoctouser && \
     echo "#include /etc/sudoers.usersetup" >> /etc/sudoers
 
 # Add pokyuser to sudoers
-USER root
+# USER root
 RUN useradd -p NOPASSWD pokyuser
 RUN adduser pokyuser sudo
 RUN echo '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -79,4 +79,5 @@ RUN apt-get install -y iptables nano
 USER usersetup
 ENV LANG=en_US.UTF-8
 
+# TODO: HB: It seems that below doesn't work when build through DevContainer?:
 ENTRYPOINT ["/usr/bin/distro-entry.sh", "/usr/bin/dumb-init", "--", "/usr/bin/poky-entry.py"]
