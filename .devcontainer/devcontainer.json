@@ -31,6 +31,7 @@
 	// "forwardPorts": [],
 
 	,"initializeCommand": "cp distro-entry.sh poky-entry.py poky-launch.sh sudoers.usersetup .devcontainer"
+	,"overrideCommand": false
 	
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",

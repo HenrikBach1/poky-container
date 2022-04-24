@@ -14,6 +14,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 
 # This entry point is so that we can do distro specific changes to the launch.
+# TODO: HB: https://docs.yoctoproject.org/current/ref-manual/system-requirements.html#required-git-tar-python-and-gcc-versions: <--
 if [ "$(uname -m)" = "aarch64" ]; then
     SETUPSCRIPT="environment-setup-aarch64-pokysdk-linux"
 elif [ "$(uname -m)" = "x86_64" ]; then
@@ -25,5 +26,6 @@ if [ -e /opt/poky/3.1.13/${SETUPSCRIPT} ]; then
     # Buildtools has been installed so enable it
     . /opt/poky/3.1.13/${SETUPSCRIPT} || exit 1
 fi
+# TODO: HB: https://docs.yoctoproject.org/current/ref-manual/system-requirements.html#required-git-tar-python-and-gcc-versions: -->
 
 exec "$@"
