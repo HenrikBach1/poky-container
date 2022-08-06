@@ -3,3 +3,8 @@
 *.orig
 *.rej
 *~
+
+# HB:
+.devcontainer/*
+!.devcontainer/Dockerfile
+!.devcontainer/devcontainer.json

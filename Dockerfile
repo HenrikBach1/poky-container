@@ -17,6 +17,7 @@
 # specify the BASE_DISTRO. This should hopefully prevent accidentally using
 # a default, when another distro was desired.
 ARG BASE_DISTRO=SPECIFY_ME
+ARG BASE_DISTRO="ubuntu-20.04"
 
 FROM crops/yocto:$BASE_DISTRO-base
 
@@ -48,6 +49,9 @@ RUN userdel -r yoctouser && \
         /usr/bin/restrict_groupadd.sh \
         /usr/bin/restrict_useradd.sh && \
     echo "#include /etc/sudoers.usersetup" >> /etc/sudoers
+
+# Extra commands in shell
+RUN apt-get install -y nano tree
 
 USER usersetup
 ENV LANG=en_US.UTF-8
