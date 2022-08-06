@@ -5,7 +5,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 
 # This entry point is so that we can do distro specific changes to the launch.
-# TODO: HB: https://docs.yoctoproject.org/current/ref-manual/system-requirements.html#required-git-tar-python-and-gcc-versions: <--
 if [ "$(uname -m)" = "aarch64" ]; then
     SETUPSCRIPT="environment-setup-aarch64-pokysdk-linux"
 elif [ "$(uname -m)" = "x86_64" ]; then
@@ -20,6 +19,5 @@ elif [ -e /opt/poky/4.0/${SETUPSCRIPT} ]; then
     # Buildtools(-make) has been installed so enable it
     . /opt/poky/4.0/${SETUPSCRIPT} || exit 1
 fi
-# TODO: HB: https://docs.yoctoproject.org/current/ref-manual/system-requirements.html#required-git-tar-python-and-gcc-versions: -->
 
 exec "$@"
