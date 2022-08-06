@@ -26,17 +26,19 @@ BASE_DISTRO="$3"
 
 declare -A distros
 
+distros["alma-8"]="AlmaLinux 8"
 distros["centos-7"]="CentOS Linux 7 (Core)"
-distros["centos-8"]="CentOS Linux 8"
 distros["debian-9"]="Debian GNU/Linux 9 (stretch)"
 distros["debian-10"]="Debian GNU/Linux 10 (buster)"
 distros["debian-11"]="Debian GNU/Linux 11 (bullseye)"
 distros["fedora-34"]="Fedora 34 (Container Image)"
 distros["fedora-35"]="Fedora Linux 35 (Container Image)"
+distros["fedora-36"]="Fedora Linux 36 (Container Image)"
 distros["opensuse-15.2"]="openSUSE Leap 15.2"
-distros["ubuntu-16.04"]="Ubuntu 16.04"
+distros["opensuse-15.3"]="openSUSE Leap 15.3"
 distros["ubuntu-18.04"]="Ubuntu 18.04"
 distros["ubuntu-20.04"]="Ubuntu 20.04"
+distros["ubuntu-22.04"]="Ubuntu 22.04"
 
 # If the distro is unknown it is a failure
 if [ "${distros[${BASE_DISTRO}]}" = "" ]; then
