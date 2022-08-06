@@ -50,6 +50,7 @@ RUN userdel -r yoctouser && \
         /usr/bin/restrict_useradd.sh && \
     echo "#include /etc/sudoers.usersetup" >> /etc/sudoers
 
+# Experimental code: <--
 # USER root
 RUN useradd -p NOPASSWD pokyuser
 # # Add pokyuser to sudoers
@@ -75,6 +76,7 @@ RUN useradd -p NOPASSWD pokyuser
 
 # For debugging in shell
 RUN apt-get install -y iptables
+# Experimental code: -->
 
 # Extra commands in shell
 RUN apt-get install -y nano tree
