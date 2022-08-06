@@ -74,7 +74,7 @@ RUN useradd -p NOPASSWD pokyuser
 #     echo "Run this image in a privileged container." 
 
 # For debugging in shell
-RUN apt-get install -y iptables nano
+RUN apt-get install -y iptables nano tree
 
 USER usersetup
 ENV LANG=en_US.UTF-8
