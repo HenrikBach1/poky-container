@@ -7,14 +7,16 @@
 		"dockerfile": "Dockerfile"
 		// Update 'VARIANT' to pick an Gentoo version: stage3-amd64-systemd
 		// HB1: It seems that build.args doesn't pass to Dockerfile build from .devcontainer:
-		,"args": {
-			"BASE_DISTRO":"ubuntu-20.04"
-			// ,"CONTEXT_DIR":"/projects/snapd/snapd-github-public-master-live-devcontainer-alpine"
-		}
+		// ,"args": {
+		// 	"BASE_DISTRO":"ubuntu-20.04"
+		// 	// ,"CONTEXT_DIR":"/projects/snapd/snapd-github-public-master-live-devcontainer-alpine"
+		// }
 	}
 	
 	// Set *default* container specific settings.json values on container create. 
-	,"settings": {}
+	,"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	}
 
 	// Add the IDs of extensions you want installed when the container is created.
 	// Note that some extensions may not work in Gentoo Linux. See https://aka.ms/vscode-remote/linux.
@@ -30,14 +32,9 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
-	,"initializeCommand": "cp distro-entry.sh poky-entry.py poky-launch.sh sudoers.usersetup .devcontainer"
-	,"overrideCommand": false
-	
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
 	
-	// ,"postStartCommand": "nohup bash -c '/postStartCommand-Gentoo.sh'"
-
 	// Replace when using a ptrace-based debugger like C++, Go, and Rust
 	// "runArgs": [ "--init", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
 	// "runArgs": ["--privileged"],
@@ -47,7 +44,11 @@
 	// ,"remoteUser": "pokyuser"
 	// ,"remoteUser": "yoctouser"
 	// ,"remoteUser": "usersetup"
-	,"mounts": [
-		"source=${localEnv:HOME}/projects,target=/projects,type=bind,consistency=cached"
-	]
+	,"initializeCommand": "cp distro-entry.sh poky-entry.py poky-launch.sh sudoers.usersetup .devcontainer"
+	,"overrideCommand": false // Run entrypoint in Dockerfile
+	// ,"postStartCommand": "nohup bash -c 'sudo -E -H -u pokyuser poky-launch.sh /projects'"
+	// ,"postStartCommand": "/usr/bin/distro-entry.sh /usr/bin/dumb-init -- /usr/bin/poky-entry.py"
+	// ,"mounts": [
+	// 	"source=${localEnv:HOME}/projects,target=/projects,type=bind,consistency=cached"
+	// ]
 }

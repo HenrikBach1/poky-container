@@ -19,4 +19,5 @@ if [ $# -gt 0 ]; then
     exec "$@"
 else
     exec bash -i
+    # exec bash -c 'sleep infinity'
 fi

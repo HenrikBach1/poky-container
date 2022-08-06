@@ -50,9 +50,9 @@ RUN userdel -r yoctouser && \
         /usr/bin/restrict_useradd.sh && \
     echo "#include /etc/sudoers.usersetup" >> /etc/sudoers
 
+# USER root
+RUN useradd -p NOPASSWD pokyuser
 # # Add pokyuser to sudoers
-# # USER root
-# RUN useradd -p NOPASSWD pokyuser
 # RUN adduser pokyuser sudo
 # RUN echo '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers
 
